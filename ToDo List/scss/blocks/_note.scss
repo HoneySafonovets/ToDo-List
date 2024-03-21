@@ -1,0 +1,57 @@
+.note {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 300px;
+  gap: 20px;
+  margin: 40px 0px;
+  // border: 1px solid $border-color;
+  padding: 15px 10px;
+  border-radius: 10px;
+  background-color: $background-note-color;
+  box-shadow: 2px 2px 5px 2px $shadow-color;
+
+  @media screen and (max-width: 560px) {
+    gap: 0px;
+  }
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-title {
+  font-family: $font-main;
+}
+
+.note-actions {
+  display: flex;
+  gap: 5px;
+
+  .note-edit {
+    @include btn-border;
+  }
+  .note-delete {
+    @include btn-border;
+  }
+}
+
+.note-title-input {
+  width: 150px;
+  font-family: $font-main;
+}
+
+.note-textarea {
+  resize: none;
+  font-family: $font-main;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Hide display text area for edit
+.note-hidden {
+  display: none;
+}

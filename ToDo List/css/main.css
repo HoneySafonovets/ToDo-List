@@ -1,0 +1,232 @@
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.body {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 830px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.header__title {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-decoration: underline;
+}
+
+.header__add {
+  margin-top: 20px;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__add:active {
+  scale: 1.1;
+}
+
+.main {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+@media screen and (max-width: 1400px) {
+  .main {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .main {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 830px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 560px) {
+  .main {
+    grid-template-columns: 1fr;
+    gap: 0px;
+  }
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 300px;
+  gap: 20px;
+  margin: 40px 0px;
+  padding: 15px 10px;
+  border-radius: 10px;
+  background-color: #FFFFE0;
+  box-shadow: 2px 2px 5px 2px #cacaca;
+}
+@media screen and (max-width: 560px) {
+  .note {
+    gap: 0px;
+  }
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-title {
+  font-family: "Roboto", sans-serif;
+}
+
+.note-actions {
+  display: flex;
+  gap: 5px;
+}
+.note-actions .note-edit {
+  border: 1px solid #000000;
+  border-radius: 2px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.note-actions .note-edit:active {
+  scale: 1.1;
+}
+.note-actions .note-delete {
+  border: 1px solid #000000;
+  border-radius: 2px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.note-actions .note-delete:active {
+  scale: 1.1;
+}
+
+.note-title-input {
+  width: 150px;
+  font-family: "Roboto", sans-serif;
+}
+
+.note-textarea {
+  resize: none;
+  font-family: "Roboto", sans-serif;
+}
+.note-textarea:focus {
+  outline: none;
+}
+
+.note-hidden {
+  display: none;
+}/*# sourceMappingURL=main.css.map */
