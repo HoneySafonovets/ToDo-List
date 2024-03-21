@@ -1,0 +1,10 @@
+// Base styles
+@import './base/reset';
+@import './base/vars';
+@import './mixins/mixins';
+@import './base/base';
+
+// Main section styles
+@import './blocks/header';
+@import './blocks/main-section';
+@import './blocks/note';
