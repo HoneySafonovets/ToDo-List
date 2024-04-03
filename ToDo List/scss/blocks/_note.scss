@@ -19,10 +19,19 @@
 .note-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .note-title {
   font-family: $font-main;
+  width: 150px;
+  resize: none;
+  vertical-align: middle;
+
+  &:focus {
+    outline: none;
+
+  }
 }
 
 .note-actions {
@@ -40,6 +49,11 @@
 .note-title-input {
   width: 150px;
   font-family: $font-main;
+  vertical-align: top;
+
+  &:focus {
+
+  }
 }
 
 .note-textarea {

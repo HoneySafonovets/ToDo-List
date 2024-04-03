@@ -181,10 +181,17 @@ legend {
 .note-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .note-title {
   font-family: "Roboto", sans-serif;
+  width: 150px;
+  resize: none;
+  vertical-align: middle;
+}
+.note-title:focus {
+  outline: none;
 }
 
 .note-actions {
@@ -217,8 +224,8 @@ legend {
 .note-title-input {
   width: 150px;
   font-family: "Roboto", sans-serif;
+  vertical-align: top;
 }
-
 .note-textarea {
   resize: none;
   font-family: "Roboto", sans-serif;
