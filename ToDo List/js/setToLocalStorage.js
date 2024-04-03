@@ -13,11 +13,13 @@ function checkLocalStorage() {
   }
 }
 
-function createNotes(title, text) {
+function createNotes(title, text, titleBegin, textBegin) {
   const newTask = {
     id: Date.now(),
     title: title,
     text: text,
+    titleBegin: titleBegin,
+    textBegin: textBegin,
   }
   const noteEl = renderTask(newTask)
   noteEl.id = newTask.id
@@ -35,8 +37,8 @@ function renderTask(task) {
   noteEl.dataset.parent = 'parent';
   noteEl.innerHTML = `
     <div class="note-header">
-      <p class="note-title" id="note-title">${task.title}</p>
-      <input id="note-title-input" class="note-hidden note-title-input" placeholder="${task.title}" type="text" autocomplete="off">
+      <textarea class="note-title" id="note-title" disabled rows="1" readonly wrap="hard" placeholder="${task.titleBegin}">${task.title}</textarea>
+      <input id="note-title-input" class="note-hidden note-title-input" placeholder="${task.titleBegin}" type="text" autocomplete="off" value="${task.title}" spellcheck="false">
       <div class="note-actions">
         <button class="note-edit">
           <i class="fa-solid fa-pen-to-square"></i>
@@ -46,9 +48,10 @@ function renderTask(task) {
         </button>
       </div>
     </div>
-    <textarea id="note-description" rows="15" wrap="hard" readonly class="note-textarea" disabled placeholder="${task.text}">${task.text}</textarea>
-    <textarea id="note-textarea" class="note-hidden note-textarea" rows="15" wrap="hard" placeholder="${task.text}"></textarea>
+    <textarea id="note-description" rows="15" wrap="hard" readonly class="note-textarea" disabled placeholder="${task.textBegin}">${task.text}</textarea>
+    <textarea id="note-textarea" class="note-hidden note-textarea" rows="15" wrap="hard" spellcheck="false" placeholder="${task.textBegin}">${task.text}</textarea>
   `
+  
   const editBtn = noteEl.querySelector('.note-edit');
   const delBtn = noteEl.querySelector('.note-delete');
   const titleEl = noteEl.querySelector('#note-title');
@@ -60,9 +63,11 @@ function renderTask(task) {
   editBtn.addEventListener('click', () => {
     textEl.classList.toggle('note-hidden');
     titleEl.classList.toggle('note-hidden');
+    
 
     textArea.classList.toggle('note-hidden');
     titleInput.classList.toggle('note-hidden');
+    titleInput.focus()
   })
   delBtn.addEventListener('click', (e) => {
     noteEl.remove()
@@ -72,9 +77,11 @@ function renderTask(task) {
   titleInput.addEventListener('input', (e) => {
     const parentNode = e.target.closest('.note')
     titleEl.innerHTML = e.target.value
+    
     const id = Number(parentNode.id)
     const task = tasks.find((task) => task.id === id)
     task.title = titleEl.innerHTML
+    task.titleBegin = titleEl.innerHTML
     saveToLocalStorage()
   })
   textArea.addEventListener('input', (e) => {
