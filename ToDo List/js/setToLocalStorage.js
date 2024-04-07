@@ -13,13 +13,11 @@ function checkLocalStorage() {
   }
 }
 
-function createNotes(title, text, titleBegin, textBegin) {
+function createNotes(title, text) {
   const newTask = {
     id: Date.now(),
     title: title,
     text: text,
-    titleBegin: titleBegin,
-    textBegin: textBegin,
   }
   const noteEl = renderTask(newTask)
   noteEl.id = newTask.id
@@ -37,8 +35,8 @@ function renderTask(task) {
   noteEl.dataset.parent = 'parent';
   noteEl.innerHTML = `
     <div class="note-header">
-      <textarea class="note-title" id="note-title" disabled rows="1" readonly wrap="hard" placeholder="${task.titleBegin}">${task.title}</textarea>
-      <input id="note-title-input" class="note-hidden note-title-input" placeholder="${task.titleBegin}" type="text" autocomplete="off" value="${task.title}" spellcheck="false">
+      <textarea class="note-title" id="note-title" disabled rows="1" readonly wrap="hard" placeholder="Заголовок">${task.title}</textarea>
+      <input id="note-title-input" class="note-hidden note-title-input" placeholder="Заголовок" type="text" autocomplete="off" value="${task.title}" spellcheck="false">
       <div class="note-actions">
         <button class="note-edit">
           <i class="fa-solid fa-pen-to-square"></i>
@@ -48,8 +46,8 @@ function renderTask(task) {
         </button>
       </div>
     </div>
-    <textarea id="note-description" rows="15" wrap="hard" readonly class="note-textarea" disabled placeholder="${task.textBegin}">${task.text}</textarea>
-    <textarea id="note-textarea" class="note-hidden note-textarea" rows="15" wrap="hard" spellcheck="false" placeholder="${task.textBegin}">${task.text}</textarea>
+    <textarea id="note-description" rows="15" wrap="hard" readonly class="note-textarea" disabled placeholder="Ваш текст...">${task.text}</textarea>
+    <textarea id="note-textarea" class="note-hidden note-textarea" rows="15" wrap="hard" spellcheck="false" placeholder="Ваш текст...">${task.text}</textarea>
   `
   
   const editBtn = noteEl.querySelector('.note-edit');

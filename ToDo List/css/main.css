@@ -189,6 +189,7 @@ legend {
   width: 150px;
   resize: none;
   vertical-align: middle;
+  overflow: hidden;
 }
 .note-title:focus {
   outline: none;
