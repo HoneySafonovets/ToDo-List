@@ -2,6 +2,7 @@ export { createNotes, tasks, checkLocalStorage, renderTask, addToPage }
 import { main } from "./vars.js"
 
 let tasks = [];
+// console.log(tasks)
 
 function checkLocalStorage() {
   if (localStorage.getItem('tasks')) {
